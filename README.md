@@ -1,4 +1,4 @@
-# starze/armhf-ddclient
+# starze/arm32v7-ddclient
 
 Simple ddclient based on arm32v7/debian:latest for running on ARM-based computers like Raspberry Pi.
 
