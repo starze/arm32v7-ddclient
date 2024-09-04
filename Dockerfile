@@ -1,5 +1,8 @@
 FROM arm32v7/debian:latest
-MAINTAINER Daniel Starzmann <daniel@starze.de>
+
+LABEL org.opencontainers.image.authors="Daniel Starzmann <daniel@starze.de>"
+LABEL org.opencontainers.image.url="https://github.com/starze/arm32v7-ddclient"
+
 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive \
     apt-get install -yq ddclient libio-socket-ssl-perl ca-certificates && \
@@ -7,5 +10,6 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive \
 
 VOLUME /config
 
-ENTRYPOINT /usr/sbin/ddclient -foreground -file /config/ddclient.conf 
+ENTRYPOINT ["/usr/sbin/ddclient"]
+CMD ["-foreground", "-file", "/config/ddclient.conf"]
 
